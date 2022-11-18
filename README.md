@@ -4,7 +4,7 @@
 
 ![lenguaje](https://s3.amazonaws.com/s3.timetoast.com/public/uploads/photo/7153283/image/8fdfa57a604e1b7e492e02ef554cd840)
 
-_**Voy a explicar a lo que nos dedicamos poco a poco en lenguaje de marcas**_
+_**Voy a explicar a lo que nos dedicamos poco a poco en lenguaje de marcas y algunos ejercicios que hemos hecho**_
 
 **1.Ejercicios**
 
