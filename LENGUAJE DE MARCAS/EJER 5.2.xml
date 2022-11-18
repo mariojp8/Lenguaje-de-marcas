@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE facturas[ 
+ <!NOTATION jpg SYSTEM "aplicaciones/visordeimagenes.exe">
+
+ <!ENTITY foto_p0360 SYSTEM "caratulas/p0360.jpg" NDATA jpg>  
+ <!ENTITY foto_p0437 SYSTEM "caratulas/p0437.jpg" NDATA jpg>
+ <!ENTITY foto_p1201 SYSTEM "caratulas/p1201.jpg" NDATA jpg>
+
+ <!ELEMENT facturas (factura*)>
+
+
+ <!ELEMENT factura (datos_cliente, datos_factura)>
+
+ <!ELEMENT datos_cliente (nombre, apellido, apellido, dni, tfno)>
+ <!ATTLIST datos_cliente
+   ident ID #REQUIRED>
+ <!ELEMENT nombre (#PCDATA)>
+ <!ELEMENT apellido (#PCDATA)>
+ <!ELEMENT dni (#PCDATA)>
+ <!ELEMENT tfno (#PCDATA)>
+
+ <!ELEMENT datos_factura (resguardo, (alquileres | compras | (alquileres,compras)))>
+
+ <!ELEMENT resguardo (forma_pago, importe_total)>
+ <!ELEMENT forma_pago (#PCDATA)>
+ <!ELEMENT importe_total (#PCDATA)>
+
+
+ <!ELEMENT alquileres (fecha, peliculas)>
+ <!ELEMENT fecha (#PCDATA)>
+ <!ELEMENT peliculas (pelicula+)>
+
+ <!ELEMENT pelicula (titulo, genero, duracion, actores)>
+ <!ATTLIST pelicula
+   id_pelicula ID #REQUIRED
+   valoracion CDATA ""
+   caratula ENTITY #IMPLIED>
+   
+ <!ELEMENT titulo (#PCDATA)>
+ <!ELEMENT genero (#PCDATA)>
+ <!ELEMENT duracion (#PCDATA)>
+ <!ELEMENT actores (actor, actor, actor)>
+ <!ELEMENT actor (nombre, apellido, apellido)>
+
+ <!ELEMENT compras (dvds | cintas | (dvds,cintas))>
+ <!ELEMENT dvds (dvd+)>
+ <!ELEMENT dvd (extras?, titulo, fecha_salida_mercado)>
+ <!ELEMENT extras EMPTY>
+ <!ELEMENT fecha_salida_mercado (#PCDATA)>
+ <!ELEMENT cintas (cinta+)>
+ <!ELEMENT cinta (titulo, formato, rebobinado?)>
+ <!ELEMENT formato (#PCDATA)>
+ <!ELEMENT rebobinado EMPTY>
+]>
+
+
+<facturas>
+   <factura>
+      <datos_cliente ident="c01">
+     <nombre>paqui</nombre>
+ <apellido>romero</apellido>
+ <apellido>Flores</apellido>
+ <dni>21154731k</dni>
+ <tfno>654465225</tfno>
+  </datos_cliente>
+  
+  <datos_factura>
+     <resguardo>
+    <forma_pago>efectivo</forma_pago>
+ <importe_total>98</importe_total>
+ </resguardo>
+ <alquileres>
+    <fecha>06/08/2009</fecha>
+ <peliculas>
+   <pelicula id_pelicula="p320" caratula="foto_p0360">
+      <titulo>la niña mala</titulo>
+  <genero>Comedia</genero>
+  <duracion>80min</duracion>
+  <actores>
+     <actor>
+    <nombre>paca</nombre>
+                <apellido>rose</apellido>
+                <apellido>emo</apellido>
+ </actor>  
+     <actor>
+  <nombre>anthony</nombre>
+                <apellido>martial</apellido>
+                <apellido></apellido>
+ </actor>  
+     <actor>
+  <nombre>alexander</nombre>
+                <apellido>pato</apellido>
+                <apellido></apellido> 
+ </actor>  
+  </actores>
+    </pelicula>
+ </peliculas>
+ </alquileres>
+ <compras>
+    <dvds>
+   <dvd>
+      <extras/>
+  <titulo>el martillo de thor</titulo>
+  <fecha_salida_mercado>2002</fecha_salida_mercado>
+   </dvd>
+ </dvds>
+ <cintas>
+   <cinta>
+      <titulo>potter harry</titulo>
+  <formato>VHS</formato>
+   </cinta>
+ </cintas>
+ </compras>
+  </datos_factura>
+   </factura>
+</facturas>
